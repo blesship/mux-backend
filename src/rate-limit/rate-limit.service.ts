@@ -37,6 +37,8 @@ import { MetricsService } from '../common/metrics/metrics.service';
 export const DeveloperQuotaErrorCode = {
   /** The developer exceeded their quota for the current window. */
   EXCEEDED: 'DEVELOPER_QUOTA_EXCEEDED',
+  /** The request has no server-resolved developer, so it cannot be accounted. */
+  UNATTRIBUTED_REQUEST: 'DEVELOPER_QUOTA_UNATTRIBUTED_REQUEST',
   /** Cleanup could not reach the database. */
   CLEANUP_DEPENDENCY_UNAVAILABLE: 'DEVELOPER_QUOTA_CLEANUP_UNAVAILABLE',
   /** The configured batch size or window was invalid. */
