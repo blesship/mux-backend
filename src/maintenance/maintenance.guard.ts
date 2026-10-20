@@ -54,6 +54,15 @@ export class MaintenanceGuard implements CanActivate {
     return true;
   }
 
+  /**
+   * Drops the cached maintenance state so the next request re-reads it from the database.
+   * Call after the persisted state changes so this instance does not serve a stale value.
+   */
+  invalidate(): void {
+    this.cachedState = null;
+    this.cacheExpiresAt = 0;
+  }
+
   private async getMaintenanceState(): Promise<{
     enabled: boolean;
     retryAfterSeconds?: number;
